@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Семья Бадряновых | Лавандовое тепло</title>
+    <!-- Крупные красивые шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ece4fc 0%, #ddd2f0 100%);
+            font-family: 'Poppins', sans-serif;
+            color: #2e1f3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* Крупные шрифты */
+        h1, h2, h3, .family-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        h1 {
+            font-size: 4.2rem;
+            background: linear-gradient(135deg, #634b8e, #9b7bc9);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            color: #4f3672;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 90px;
+            height: 4px;
+            background: #b392e0;
+            border-radius: 20px;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: #4f3672;
+        }
+
+        /* Сетка карточек с круглыми углами */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: rgba(255, 252, 255, 0.94);
+            backdrop-filter: blur(2px);
+            border-radius: 56px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 25px 40px -14px rgba(46, 37, 56, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            height: 100%;
+            border: 1px solid rgba(230, 215, 255, 0.8);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 45px -12px rgba(79, 54, 114, 0.3);
+            background: white;
+        }
+
+        /* Аватар с иконкой */
+        .avatar-icon {
+            font-size: 4rem;
+            background: #efe6ff;
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 12px 20px -10px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ede4ff;
+            padding: 6px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0.7rem 0;
+            color: #5e3a8c;
+        }
+
+        .highlight-text {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0.8rem 0 0.3rem;
+            color: #734c9e;
+        }
+
+        .big-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #a07bcb;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .tag {
+            background: #f3edff;
+            border-radius: 32px;
+            padding: 0.3rem 1rem;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin: 0.2rem 0.2rem;
+            color: #4a2f6e;
+        }
+
+        /* Цитата / блок традиций в лавандовом стиле */
+        .quote-section {
+            background: #f4efff;
+            border-radius: 64px;
+            padding: 2.8rem 2rem;
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            border: 1px solid #e5d9ff;
+        }
+
+        .quote-text {
+            font-size: 1.7rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            color: #392e4a;
+        }
+
+        /* Блок коротких фактов */
+        .fun-facts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .fact-card {
+            flex: 1;
+            min-width: 150px;
+            background: #faf5ff;
+            border-radius: 48px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid #e5d4ff;
+        }
+        .fact-card i {
+            font-size: 2.2rem;
+            color: #8f6bc6;
+            margin-bottom: 12px;
+        }
+        .fact-card p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #3a2a50;
+        }
+
+        /* Подвал */
+        footer {
+            background: #e2d6fc;
+            border-radius: 56px 56px 0 0;
+            padding: 2rem 1.8rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .heart-pulse {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ede2ff;
+            border-radius: 80px;
+            padding: 8px 28px;
+            cursor: default;
+            font-weight: 500;
+        }
+
+        /* Анимация попрыгунчика */
+        @keyframes lavenderBounce {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .bounce-icon {
+            animation: lavenderBounce 0.7s infinite ease;
+            display: inline-block;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 850px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.4rem; }
+            h3 { font-size: 1.7rem; }
+            .quote-text { font-size: 1.4rem; }
+            .avatar-icon { width: 85px; height: 85px; font-size: 3rem; }
+            .family-grid { gap: 1.5rem; }
+        }
+        @media (max-width: 550px) {
+            .container { padding: 0 20px; }
+            .card { padding: 1.5rem; }
+            .fact-card p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Шапка с заголовком "Наша семья Бадряновых" -->
+    <div style="padding: 40px 0 15px; text-align: center;">
+        <div class="heart-pulse" style="margin: 0 auto; width: fit-content;">
+            <i class="fas fa-feather-alt" style="color: #8f6bc6;"></i> 
+            <span>лавандовое счастье</span>
+            <i class="fas fa-feather-alt" style="color: #8f6bc6;"></i>
+        </div>
+        <h1 style="margin-top: 28px;">Наша семья<br>Бадряновых</h1>
+        <p style="font-size: 1.3rem; max-width: 620px; margin: 1rem auto 0; color: #4f3e69;">
+            🧡 уют, поддержка и безграничная любовь 🧡
+        </p>
+    </div>
+
+    <!-- Сетка с карточками всех членов семьи -->
+    <div class="family-grid">
+        
+        <!-- София (ребёнок) -->
+        <div class="card">
+            <div class="avatar-icon" style="background: #efe2ff;">
+                <i class="fas fa-roller-skate" style="font-size: 3rem; color: #8a64c2;"></i>
+            </div>
+            <h3>София ✨</h3>
+            <div class="badge"><i class="far fa-calendar-alt"></i> 11 лет</div>
+            <div class="highlight-text">
+                <span class="big-number">🛼</span> Хобби:
+            </div>
+            <p style="font-size: 1.4rem; font-weight: 600; color: #825eb9; margin-top: 4px;">Кататься на роликах</p>
+            <p style="margin-top: 12px;">София — настоящая роллер-леди! Ветер в волосах, скорость и новые трюки в парке — вот её стихия. Энергичная, смелая и всегда готова к приключениям.</p>
+            <div style="margin-top: 1rem;">
+                <i class="fas fa-shoe-prints" style="color: #9b7bc9;"></i> 
+                <i class="fas fa-wind" style="color: #9b7bc9; margin-left: 10px;"></i>
+                <i class="fas fa-smile" style="color: #9b7bc9; margin-left: 10px;"></i>
+            </div>
+        </div>
+
+        <!-- Виктория (мама) -->
+        <div class="card">
+            <div class="avatar-icon" style="background: #efe2ff;">
+                <i class="fas fa-utensils" style="font-size: 3rem; color: #8a64c2;"></i>
+            </div>
+            <h3>Виктория 👩‍🍳</h3>
+            <div class="badge"><i class="fas fa-star-of-life"></i> Суперспособность</div>
+            <div class="highlight-text">
+                <span class="big-number">⚡</span> Готовить быстро и вкусно!
+            </div>
+            <p>15 минут — и на столе кулинарный шедевр. Виктория умеет превратить простые продукты в праздник. Её фирменные пироги и супы — настоящая мамина магия.</p>
+            <div style="margin-top: 0.8rem;">
+                <span class="tag"><i class="fas fa-pizza-slice"></i> Пицца за 10 мин</span>
+                <span class="tag"><i class="fas fa-cookie-bite"></i> Магия вкуса</span>
+            </div>
+        </div>
+
+        <!-- Дмитрий (папа) -->
+        <div class="card">
+            <div class="avatar-icon" style="background: #efe2ff;">
+                <i class="fas fa-smile-wink" style="font-size: 3rem; color: #8a64c2;"></i>
+            </div>
+            <h3>Дмитрий 😄</h3>
+            <div class="badge"><i class="fas fa-star-of-life"></i> Суперспособность</div>
+            <div class="highlight-text">
+                <span class="big-number">☀️</span> Быть всегда на позитиве!
+            </div>
+            <p>Дмитрий — ходячее солнце. Его шутки, оптимизм и вера в лучшее заряжают всю семью. С ним даже пасмурный день становится радостным приключением.</p>
+            <div class="tag"><i class="fas fa-sun"></i> Заряжает радостью</div>
+        </div>
+
+        <!-- Арсений (братик) -->
+        <div class="card">
+            <div class="avatar-icon" style="background: #efe2ff;">
+                <i class="fas fa-futbol" style="font-size: 3rem; color: #8a64c2;"></i>
+            </div>
+            <h3>Арсений ⚽</h3>
+            <div class="badge"><i class="far fa-calendar-alt"></i> 7 лет</div>
+            <div class="highlight-text">
+                <span class="big-number">🥅</span> Мечта:
+            </div>
+            <p style="font-size: 1.4rem; font-weight: 600; color: #825eb9;">«Стать футболистом!»</p>
+            <p>Арсений гоняет мяч с утра до вечера, болеет за звёзд футбола и уже отрабатывает дриблинг. Будущий капитан и гордость команды!</p>
+            <div><i class="fas fa-futbol" style="color: #9b7bc9;"></i> <i class="fas fa-trophy" style="margin-left: 8px; color: #9b7bc9;"></i></div>
+        </div>
+
+        <!-- Басик (кот) -->
+        <div class="card">
+            <div class="avatar-icon" style="background: #efe2ff;">
+                <i class="fas fa-cat" style="font-size: 3rem; color: #8a64c2;"></i>
+            </div>
+            <h3>Басик 🐾</h3>
+            <div class="badge"><i class="fas fa-paw"></i> Шотландский прямоухий</div>
+            <div class="highlight-text">
+                <span class="big-number">🎾</span> Хобби: играть с попрыгунчиком
+            </div>
+            <p>Басик — непревзойдённый охотник за резиновыми попрыгунчиками! Он может часами гонять их, приносить обратно и смешно подпрыгивать. Любимец семьи и источник умиления.</p>
+            <div><i class="fas fa-bounce bounce-icon" style="color: #a07bcb;"></i> <span>прыг-скок целый день!</span></div>
+        </div>
+    </div>
+
+    <!-- Тёплая цитата / описание традиций -->
+    <div class="quote-section">
+        <i class="fas fa-quote-left" style="font-size: 2.3rem; color: #b392e0; opacity: 0.7;"></i>
+        <div class="quote-text">
+            Виктория кормит всех вкусностями, Дмитрий заряжает смехом, София мчит на роликах, Арсений забивает голы, а Басик ловит попрыгунчик — вместе мы непобедимы!
+        </div>
+        <div style="margin-top: 24px;">
+            <span style="background: white; border-radius: 80px; padding: 6px 28px; font-weight: 600; color: #5e3a8c;">💜 наши сердца — едины 💜</span>
+        </div>
+    </div>
+
+    <!-- Короткие факты (крупно и мило) -->
+    <div class="fun-facts">
+        <div class="fact-card">
+            <i class="fas fa-roller-skate"></i>
+            <p>София — роллер</p>
+            <span style="font-size: 0.85rem;">🛼 скорость и свобода</span>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-egg"></i>
+            <p>Виктория: ужин за 15 мин</p>
+            <span style="font-size: 0.85rem;">🍲 суперсила на кухне</span>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-sun"></i>
+            <p>Дмитрий — позитив</p>
+            <span style="font-size: 0.85rem;">😄 улыбка заразительна</span>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-futbol"></i>
+            <p>Арсений — футболист</p>
+            <span style="font-size: 0.85rem;">⚽ мечтает о голевых</span>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-cat"></i>
+            <p>Басик + попрыгунчик</p>
+            <span style="font-size: 0.85rem;">🎾 вечные игры</span>
+        </div>
+    </div>
+
+    <!-- Блок семейных традиций -->
+    <div class="card" style="background: #faf5ff; text-align: center; margin-bottom: 50px; border: 1px solid #e5d4ff;">
+        <h3 style="font-size: 2rem;"><i class="fas fa-hands-helping"></i> Наши лавандовые традиции</h3>
+        <p style="font-size: 1.2rem; max-width: 750px; margin: 0 auto;">Каждый вечер мы собираемся за чашкой ароматного чая с мамиными десертами, папа придумывает забавные истории, София делится новыми трюками, Арсений показывает финты с мячом, а Басик обязательно приносит свой попрыгунчик. И всё это — под тёплым лавандовым светом нашей любви. 🧡</p>
+        <div style="margin-top: 30px;">
+            <i class="fas fa-heart" style="color: #a07bcb;"></i> 
+            <strong style="font-size: 1.1rem;">Маленькие шаги к большим мечтам — когда семья Бадряновых вместе</strong> 
+            <i class="fas fa-heart" style="color: #a07bcb;"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Подвал -->
+<footer>
+    <div class="container">
+        <div style="display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 1.2rem;">
+            <span><i class="fas fa-roller-skate"></i> София, 11 лет</span>
+            <span><i class="fas fa-female"></i> Виктория</span>
+            <span><i class="fas fa-male"></i> Дмитрий</span>
+            <span><i class="fas fa-futbol"></i> Арсений, 7 лет</span>
+            <span><i class="fas fa-cat"></i> Басик</span>
+        </div>
+        <p style="font-size: 1rem;">Сайт семьи Бадряновых — тепло и лавандовое настроение ✨</p>
+        <p style="font-size: 0.9rem; margin-top: 16px;">💜 Каждый день мы поддерживаем мечты друг друга 💜</p>
+    </div>
+</footer>
+
+<!-- Лёгкий интерактив: при клике на карточку иконка масштабируется -->
+<script>
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const icon = card.querySelector('.avatar-icon i');
+            if (icon) {
+                icon.style.transform = 'scale(1.15)';
+                setTimeout(() => { icon.style.transform = ''; }, 150);
+            }
+            card.style.transition = '0.05s linear';
+            card.style.backgroundColor = '#ffffff';
+            setTimeout(() => {
+                card.style.backgroundColor = '';
+            }, 100);
+        });
+    });
+    console.log("Страница семьи Бадряновых загружена! Лавандовое счастье 💜");
+</script>
+</body>
+</html>
